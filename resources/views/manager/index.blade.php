@@ -43,6 +43,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="d-flex justify-content-center">
+                        {!! $apps->links('pagination::bootstrap-4') !!}
+                    </div>
                     @else
                     <div class="text-center">
                         Пока пусто...

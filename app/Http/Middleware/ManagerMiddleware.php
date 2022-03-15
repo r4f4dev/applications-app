@@ -22,7 +22,7 @@ class ManagerMiddleware
             if (Auth::user()->isManager()) {
                 return $next($request);
             } else {
-                return redirect(route('home'))->with('alert-danger', 'У вас нет доступа');
+                return redirect(route('home'))->with('message', 'У вас нет доступа');
             }
         }
 

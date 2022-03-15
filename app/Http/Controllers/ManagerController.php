@@ -8,7 +8,7 @@ class ManagerController extends Controller
 {
     public function index()
     {
-        $applications = Application::paginate(10);
+        $applications = Application::paginate(1);
 
         return view('manager.index', ['apps' => $applications]);
     }

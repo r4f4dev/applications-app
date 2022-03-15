@@ -28,5 +28,5 @@ Route::group(['middleware' => ['auth', 'manager']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::post('/application', [HomeController::class, 'create'])->name('application.create');
+    Route::post('/application', [HomeController::class, 'create'])->name('application.create')->middleware('restrict');
 });
