@@ -38,6 +38,4 @@
 1. ```console
     composer install
    ```
-1. ```console
-
-   ```
+1. Переименуем

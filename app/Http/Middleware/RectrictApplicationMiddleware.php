@@ -20,12 +20,23 @@ class RectrictApplicationMiddleware
     {
         if (Auth::check()) {
 
-            $lastInsert = Application::where('user_id', auth()->user()->id)->latest()->first();
-            dd($lastInsert);
+            if (Application::where('user_id', auth()->user()->id)->latest()->exists()) {
+                $lastInsert = Application::where('user_id', auth()->user()->id)->latest()->firstOrFail();
+                $interval = $lastInsert->created_at->diff(now());
+
+                if ($lastInsert->exists() and $interval->d > 1) {
+                    return $next($request);
+                }
+
+                return redirect()->back()->with('message', "Вы добавили заявку $interval->h часа $interval->i минут $interval->s секунд назад для добавления заявки должно пройти 24 часа !");
+
+            }
+
+            return $next($request);
 
         }
 
-        return $next($request);
+        return abort(404);
 
     }
 }
