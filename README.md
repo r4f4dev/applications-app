@@ -43,7 +43,7 @@
     ./vendor/bin/sail up -d
    ```
 4. ```console
-    ./vendor/bin/sail artisan migrate
+    ./vendor/bin/sail artisan migrate:refresh
    ```
 5. ```console
     ./vendor/bin/sail artisan db:seed
