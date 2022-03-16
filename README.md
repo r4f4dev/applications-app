@@ -38,4 +38,13 @@
 1. ```console
     composer install
    ```
-1. Переименуем
+2. Переименуем .env.example в .env
+3. ```console
+    ./vendor/bin/sail up -d
+   ```
+4. ```console
+    ./vendor/bin/sail artisan migrate
+   ```
+5. ```console
+    ./vendor/bin/sail artisan db:seed
+   ```
